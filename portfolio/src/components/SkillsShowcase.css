@@ -1,0 +1,261 @@
+.skills-showcase {
+  margin: 60px 0;
+  position: relative;
+}
+
+.skills-showcase h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 15px;
+  color: #fff;
+  border-left: 3px solid;
+  border-image: linear-gradient(to bottom, #3A29FF, #FF94B4) 1;
+  animation: borderPulse 4s ease infinite alternate;
+}
+
+.skills-orbit-container {
+  height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.skills-orbit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: orbitRotate 60s linear infinite;
+}
+
+.skill-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(220px) rotate(calc(-360deg / var(--total) * var(--index)));
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: skillFadeIn 0.8s ease forwards;
+  animation-delay: var(--delay);
+}
+
+.skill-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(20, 20, 43, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(var(--color-rgb, 123, 63, 228), 0.5);
+  font-size: 28px;
+  color: var(--color, #fff);
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(var(--color-rgb, 123, 63, 228), 0.3);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.skill-icon i {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.skill-name {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.skill-icon-wrapper:hover .skill-name {
+  opacity: 1;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.skill-icon-wrapper:hover .skill-icon {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px var(--color, rgba(123, 63, 228, 0.8));
+}
+
+.skill-icon-wrapper:hover .skill-icon i {
+  transform: scale(1.2) rotateY(360deg);
+}
+
+.core-circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #0c0c19, #14142b);
+  box-shadow: 0 0 40px rgba(123, 63, 228, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.pulse-circle {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #3A29FF, #BD34FE, #FF94B4);
+  animation: pulseCore 2s ease-out infinite;
+}
+
+.connecting-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.connecting-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(123, 63, 228, 0.8), transparent);
+  transform-origin: left center;
+  transform: rotate(calc(360deg / var(--total) * var(--index)));
+  opacity: 0;
+  animation: lineFadeIn 0.5s ease forwards;
+  animation-delay: calc(var(--delay) + 0.2s);
+}
+
+.skills-orbit-container.animate .skill-icon-wrapper {
+  animation: skillFadeIn 0.8s ease forwards, skillHover 4s ease-in-out infinite alternate;
+  animation-delay: var(--delay), calc(var(--delay) + 0.8s);
+}
+
+/* Animations */
+@keyframes orbitRotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes skillFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(220px) rotate(calc(-360deg / var(--total) * var(--index))) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(220px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1);
+  }
+}
+
+@keyframes skillHover {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(220px) rotate(calc(-360deg / var(--total) * var(--index)));
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(235px) rotate(calc(-360deg / var(--total) * var(--index)));
+  }
+}
+
+@keyframes lineFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulseCore {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .skills-orbit-container {
+    height: 400px;
+  }
+  
+  .skill-icon-wrapper {
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(180px) rotate(calc(-360deg / var(--total) * var(--index)));
+  }
+  
+  .connecting-line {
+    width: 180px;
+  }
+  
+  .skills-orbit-container.animate .skill-icon-wrapper {
+    animation: skillFadeIn 0.8s ease forwards, skillHoverMobile 4s ease-in-out infinite alternate;
+    animation-delay: var(--delay), calc(var(--delay) + 0.8s);
+  }
+  
+  @keyframes skillHoverMobile {
+    0%, 100% {
+      transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(180px) rotate(calc(-360deg / var(--total) * var(--index)));
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(195px) rotate(calc(-360deg / var(--total) * var(--index)));
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-orbit-container {
+    height: 300px;
+  }
+  
+  .skill-icon-wrapper {
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(130px) rotate(calc(-360deg / var(--total) * var(--index)));
+  }
+  
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+  
+  .connecting-line {
+    width: 130px;
+  }
+  
+  @keyframes skillHoverMobile {
+    0%, 100% {
+      transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(130px) rotate(calc(-360deg / var(--total) * var(--index)));
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateX(140px) rotate(calc(-360deg / var(--total) * var(--index)));
+    }
+  }
+} 

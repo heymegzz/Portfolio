@@ -1,0 +1,440 @@
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.about-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 50px auto;
+  opacity: 1;
+  transform: none;
+  position: relative;
+  z-index: 1;
+}
+
+.about-container.visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.section-header {
+  margin-bottom: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #3A29FF, #FF94B4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-line {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #3A29FF, #FF94B4);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.header-line::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(to right, #3A29FF, #FF94B4);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(123, 104, 238, 0.6);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-content > div {
+  background: rgba(20, 20, 43, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(123, 104, 238, 0.1);
+}
+
+.about-text h3,
+.skills-section h3,
+.education-section h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+  color: #fff;
+}
+
+.about-text h3::after,
+.skills-section h3::after,
+.education-section h3::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, #3A29FF, #FF94B4);
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+}
+
+/* Skills section */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.skill-group {
+  background: linear-gradient(145deg, #0c0c19, #14142b);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3A29FF, #FF94B4);
+  opacity: 0.8;
+}
+
+.skill-group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(123, 63, 228, 0.2);
+}
+
+.skill-group h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-group h4::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #3A29FF, transparent);
+  animation: techLineFlow 3s ease-in-out infinite;
+}
+
+@keyframes techLineFlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skill-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-group li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.skill-group li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #FF94B4;
+  font-size: 14px;
+}
+
+/* Education section */
+.education-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3A29FF, #FF94B4);
+  opacity: 0.7;
+  animation: educationPulse 4s ease infinite alternate;
+}
+
+@keyframes educationPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(123, 63, 228, 0.3);
+    height: 30%;
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(189, 52, 254, 0.5);
+    height: 100%;
+  }
+}
+
+.education-year {
+  min-width: 120px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-right: 20px;
+  color: #FF94B4;
+  position: relative;
+}
+
+.education-year::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #3A29FF;
+  right: -6px;
+  top: 6px;
+  box-shadow: 0 0 10px rgba(58, 41, 255, 0.6);
+  z-index: 10;
+}
+
+.education-content {
+  position: relative;
+  padding-left: 30px;
+  border-left: 2px solid rgba(123, 104, 238, 0.3);
+  padding-bottom: 15px;
+}
+
+.education-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.education-institution {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.education-content p:last-child {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media screen and (min-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "text text"
+      "skills skills"
+      "education education";
+    gap: 50px;
+  }
+
+  .about-text {
+    grid-area: text;
+  }
+
+  .skills-section {
+    grid-area: skills;
+  }
+
+  .education-section {
+    grid-area: education;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-section {
+    padding: 100px 20px 60px;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .education-item {
+    flex-direction: column;
+  }
+
+  .education-year {
+    padding-bottom: 10px;
+    padding-right: 0;
+  }
+
+  .education-year::after {
+    top: auto;
+    bottom: -6px;
+    right: auto;
+    left: 0;
+  }
+
+  .education-content {
+    padding-left: 20px;
+  }
+}
+
+.about-content h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 15px;
+  color: #fff;
+  border-left: 3px solid;
+  border-image: linear-gradient(to bottom, #3A29FF, #FF94B4) 1;
+  animation: borderPulse 4s ease infinite alternate;
+}
+
+@keyframes borderPulse {
+  0% {
+    border-image: linear-gradient(to bottom, #3A29FF, #FF94B4) 1;
+    text-shadow: 0 0 3px rgba(123, 63, 228, 0.2);
+  }
+  50% {
+    border-image: linear-gradient(to bottom, #BD34FE, #3A29FF) 1;
+    text-shadow: 0 0 8px rgba(189, 52, 254, 0.4);
+  }
+  100% {
+    border-image: linear-gradient(to bottom, #FF94B4, #BD34FE) 1;
+    text-shadow: 0 0 3px rgba(255, 148, 180, 0.2);
+  }
+}
+
+.expertise-boxes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin: 0;
+  width: 100%;
+}
+
+.expertise-box {
+  background: rgba(20, 20, 43, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(123, 104, 238, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3A29FF, #BD34FE, #FF94B4);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.expertise-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(123, 63, 228, 0.2);
+}
+
+.expertise-box:hover::before {
+  transform: scaleX(1);
+}
+
+.expertise-box h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.expertise-box p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.expertise-box ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.expertise-box ul li {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.expertise-box ul li::before {
+  content: "→";
+  position: absolute;
+  left: -20px;
+  color: #BD34FE;
+}
+
+@media screen and (max-width: 768px) {
+  .expertise-boxes {
+    grid-template-columns: 1fr;
+  }
+} 

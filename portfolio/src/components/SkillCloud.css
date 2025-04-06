@@ -1,0 +1,108 @@
+.skill-cloud {
+  margin: 60px 0;
+  position: relative;
+}
+
+.skill-cloud h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  position: relative;
+  padding-left: 15px;
+  color: #fff;
+  border-left: 3px solid;
+  border-image: linear-gradient(to bottom, #3A29FF, #FF94B4) 1;
+  animation: borderPulse 4s ease infinite alternate;
+}
+
+.cloud-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  background: rgba(20, 20, 43, 0.4);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(123, 104, 238, 0.1);
+  opacity: 1;
+  transform: none;
+  min-height: 200px;
+}
+
+.cloud-container.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.skill-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(20, 20, 43, 0.8), rgba(30, 30, 60, 0.8));
+  border: 1px solid rgba(123, 63, 228, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+  animation: bubbleFloat 4s ease-in-out infinite;
+}
+
+.bubble-icon {
+  font-size: 35px;
+  margin-bottom: 10px;
+  color: var(--color, #fff);
+  transition: transform 0.3s ease;
+}
+
+.bubble-name {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.skill-bubble:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(var(--color-rgb, 123, 63, 228), 0.3);
+  z-index: 10;
+}
+
+.skill-bubble:hover .bubble-icon {
+  transform: scale(1.2);
+}
+
+@keyframes bubbleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skill-bubble {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+  
+  .bubble-icon {
+    font-size: 28px;
+  }
+  
+  .bubble-name {
+    font-size: 10px;
+  }
+} 

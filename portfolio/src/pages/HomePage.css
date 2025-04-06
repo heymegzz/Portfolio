@@ -1,0 +1,153 @@
+.home-section {
+  min-height: 100vh;
+  background-color: #0a0a14;
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 70px;
+}
+
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.home-text {
+  flex: 0 0 55%;
+  max-width: 55%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 40px;
+  margin-top: 160px;
+}
+
+.name {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.bio {
+  margin: 20px 0;
+  max-width: 600px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.bio.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-section {
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.social-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-visual {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.tech-display-container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.tech-display-container:hover {
+  transform: scale(1.02);
+}
+
+.celestial-container {
+  width: 450px;
+  height: 450px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.celestial-container:hover {
+  transform: scale(1.08);
+}
+
+.cosmic-container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  border-radius: 50%;
+  overflow: visible;
+  transition: transform 0.3s ease;
+  margin-right: 0;
+  margin-left: 40px;
+  margin-top: 150px;
+}
+
+.cosmic-container:hover {
+  transform: scale(1.05);
+}
+
+.planet-container {
+  width: 450px;
+  height: 450px;
+  position: relative;
+  border-radius: 50%;
+  overflow: visible;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 40px;
+}
+
+.planet-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(140, 80, 255, 0.2);
+}
+
+@media (max-width: 992px) {
+  .home-content {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .home-text, .home-visual {
+    width: 100%;
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  .home-text {
+    margin-bottom: 50px;
+  }
+  
+  .bio {
+    margin: 20px auto;
+  }
+  
+  .tech-display-container {
+    margin: 0 auto;
+  }
+  
+  .home-visual {
+    justify-content: center;
+    padding-right: 0;
+  }
+} 
