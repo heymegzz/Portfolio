@@ -9,6 +9,7 @@ const SkillCloud = () => {
     { name: 'JavaScript', icon: 'fab fa-js-square', color: '#F7DF1E' },
     { name: 'React', icon: 'fab fa-react', color: '#61DAFB' },
     { name: 'Python', icon: 'fab fa-python', color: '#3776AB' },
+    { name: 'MySQL', icon: 'fas fa-database', color: '#4479A1' },
     { name: 'Git', icon: 'fab fa-git-alt', color: '#F05032' },
     { name: 'GitHub', icon: 'fab fa-github', color: '#ffffff' },
     { name: 'VS Code', icon: 'fas fa-code', color: '#007ACC' },
